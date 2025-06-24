@@ -1,36 +1,27 @@
+drop table estudiantes
+
+
 create table estudiantes(
 	cedula char(10) not null,
 	nombre varchar(50) not null,
 	apellido varchar(50) not null,
 	email varchar(50) not null,
 	fecha_nacimiento date not null,
+	codigo_profesor int,
 	constraint estudiantes_pk primary key(cedula)
 )
 
-insert into estudiantes (cedula,nombre,apellido,email,fecha_nacimiento)
-values ('7894561230','odfjknb','lsfpdsm','saokbdfvosjbdv','07/06/2001');
+create table profesores (
+    codigo int not null,
+    nombre varchar(50),
+    direccion varchar(100),
+    telefono varchar(15),
+	constraint profesores_pk primary key(codigo)
+);
 
-
-insert into estudiantes (cedula,nombre,apellido,email,fecha_nacimiento)
-values ('7896561230','odfjhfgknb','lsafpdsm','saokjgfbdfvosjbdv','07/06/2001');
-
-insert into estudiantes (cedula,nombre,apellido,email,fecha_nacimiento)
-values ('7837561230','odfjfghknb','lsfpsdsm','saokbjdfvosjbdv','07/06/2001');
-
-insert into estudiantes (cedula,nombre,apellido,email,fecha_nacimiento)
-values ('7894574230','odfjwsfknb','lsfpdsm','saokbdfvosjbdv','07/06/2001');
-
-insert into estudiantes (cedula,nombre,apellido,email,fecha_nacimiento)
-values ('7894567230','odfdsfjknb','lsfdpdsm','saokbdfvosjbdv','07/06/2001');
-
-insert into estudiantes (cedula,nombre,apellido,email,fecha_nacimiento)
-values ('7894568330','odfjdfknb','lsfpudsm','saokbdfvosjbdv','07/06/2001');
-
-insert into estudiantes (cedula,nombre,apellido,email,fecha_nacimiento)
-values ('7894561000','odfjkgfnb','lsfpydsm','saokbdfvosjbdv','07/06/2001');
-
-insert into estudiantes (cedula,nombre,apellido,email,fecha_nacimiento)
-values ('7794561230','odfwsgjknb','lsftpdsm','saokbdfvosjbdv','07/06/2001');
-
+alter table estudiantes 
+add constraint profesor_codigo_fk 
+foreign key (codigo_profesor) 
+references profesores(codigo)
 
 select * from estudiantes
