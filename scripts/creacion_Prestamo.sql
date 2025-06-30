@@ -23,3 +23,6 @@ alter table prestamo
 add constraint prestamo_cedula_fk
 foreign key (cedula)
 references persona(cedula);
+
+select * from persona
+select * from prestamo
